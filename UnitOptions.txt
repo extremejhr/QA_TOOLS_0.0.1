@@ -1,0 +1,122 @@
+ unit add [-ifbvhz] -p <parent-unit-root-directory>|@<baseline-id>
+                         [-r <source-reference>]
+                         [-f writes over old init.def]
+                         [-t <type>]
+                         [-n <unit|branch-name>]
+                         [-s <scenario-name>]
+                         [-w <dms-node-relationship>]
+                         [-e <env-unit-root-directory>|@<reference-node-baseline-id>]
+                         [-x <change package>]
+                         [-<X> <y|n>]
+                         [-PLAT <override platform>]
+                         <unit-root-directory>
+       unit set [-ibvhz]  [-t <type>]
+                         [-p <parent-unit-root-directory|@<parent-baseline-id>]
+                         [-r <source-reference>]
+                         [-n <unit|branch-name>]
+                         [-s <scenario-name>]
+                         [-k <configuration-name>]
+                         [-c <component list>]
+                         [-<X> <y|n>]
+                         [-PLAT <override platform>]
+                         [unit-root-directory]
+       unit run <unit-root-directory> command(s)
+       unit delete [-fq] <unit-root-directory>
+                         [-f force the delete of sub-units with a query]
+                         [-q when combined with -f will force the delete of sub-units, no query]
+Flags:
+       -h or -?   help
+       -i         interactive mode (for build switches)
+       -f         force mode (writes over old init.def)
+       -v         verbose mode (print run-time definitions)
+       -g         trace (for debug purposes)
+       -b         batch mode
+       -z         transient mode
+       -a         enable batch mode for UDU Locator
+       -t <type>  unit type
+       -p <root>|@<baseline-id>  parent unit root directory
+       -r <dir>   source reference directory
+       -n <name>  unit or group branch name (default - the name of last root subdirectory)
+       -s <name>  default scenario name (default - do)
+       -k <name>  configuration name
+       -w <type>  DMS node relationship (SUB, PEER, NONE)
+       -l <y|n>   Use Latest on Baseline
+       -e <root>|@<baseline-id>  DMS environment node
+       -c <Component1 Component2 ...>  The space separated list of components you want to build
+       -u         Create Shortcut (WNT Only)
+       -PLAT <platform>   Forces the unit platform to <platform>.
+       -INIT <init.def template>   Use this template for the unit.
+       -LOAD <preload offset>   Load this source from the baseline before launching.
+       -V <y|n>  Visual Studio Project
+       -B <y|n>  Enable Build View
+       -C <y|n>  Synchronize source
+       -D <y|n>  Debug Compile
+       -P <y|n>  Prune Build Tree
+       -O <y|n>  Optimize Compile
+       -DO_LINK_OPT <y|n>        Optimize Link
+       -Q <y|n>  Qaz Checking
+       -T <y|n>  Synchronize Build Area
+       -I <y|n>  Dependent Library Builds
+       -J <y|n>  Journamation Recompile
+       -S <y|n>  Schema Recompile
+       -W <y|n>  Schema Recompile Reduction check
+       -R <y|n>  Source Recompile
+       -M <y|n>  Distribute Builds
+       -N <y|n>  Group Show Errors
+       -F <y|n>  Group QIDB
+       -E <y|n>  Group Common Build
+       -G <y|n>  Group Platform Build
+       -L <y|n>  Group QXDB
+       -K <y|n>  Group Athena
+       -H <y|n>  Group Checking
+       -U <y|n>  Group Uftest
+       -A <y|n>  Group Validate
+       -Y <y|n>  Group Athena Results Management
+       -X <y|n>  Group VCP build
+       -DO_ARXAN <y|n>   Turn on Arxan processing
+       -DO_BACKUP_DISABLE <y|n>  Disable backup of unit
+       -DO_BUILD_SCHEMA_COMPILER <y|n>   Build schema compiler
+       -DO_HOOKA <y|n>   Run script HOOKA
+       -DO_HOOK1 <y|n>   Run script HOOK1
+       -DO_HOOK2 <y|n>   Run script HOOK2
+       -DO_HOOK3 <y|n>   Run script HOOK3
+       -DO_HOOK4 <y|n>   Run script HOOK4
+       -DO_JAVA <y|n>    Build Java Applications
+       -DO_JAVASCRIPT_BUILD <y|n>        Build JavaScript Libraries
+       -DO_NLM <y|n>     Build NLM files
+       -DO_NO_TEST_ENV <y|n>     Turns on testing of unit work environment
+       -DO_PRINT_ERRORS <y|n>    Print all errors to error report
+       -DO_PROCESS_META_FILE <y|n>       Compile Meta SCH file with Meta compiler
+       -PROJ_API_CHECK <y|n>     JA Compile Step only compiles files different from Parent
+       -DO_QALANG_CHECKING <y|n>         Check NLM to see if UI strings have changed
+       -API_CHECK <y|n>  JA Compile Step Optimize
+       -DO_TARI_RECOMPILES <y|n>         Enable tari recompiles
+       -DO_THREADED <y|n>         Enable threaded builds
+       -DO_KF_TABLES <y|n>       Create KF Tables
+       -BUILD_NXOPENCPP <y|n>    NXOPENCPP class will compile in projects
+       -BUILD_NXOPENJAVA <y|n>   NXOPENJAVA class will compile in projects
+       -BUILD_NXOPENPYTHON <y|n>         NXOPENPYTHON class will compile in projects
+       -BUILD_KFBINDINGS <y|n>   KFBINDINGS class will compile in projects
+       -DMS_BASELINE_HIDE <y|n>  DMS baseline will be hidden after creation
+       -LOAD_BASELINE_DUPLICATES <y|n>   Will not unload files in work space that are identical to the DMS baseline
+       -REBASE_TO_BASELINE_OFF <y|n>     Do not set the REBASE_TO_BASELINE value in DMS database
+       -SKIP_OBSOLETES <y|n>     Do not process obsolete step
+       -SME_PROJ <y|n>   SME Build Project
+       -SME_GROUP <y|n>  SME Build Group
+       -SME_IP <y|n>     SME Build IP
+       -SME_KEEP_DIR <y|n>       SME directory is kept after the SME File is zipped
+       -SME_KEEP_PDBS <y|n>      SME File will include the PDB files
+       -SME_PDB_ZIP <y|n>        SME PDB Files will be in seperate zip file
+       -UNLOAD_BASELINE_DUPLICATES <y|n>         Baseline unload of duplicate identical files
+       -UNLOAD_BASELINE_DUPLICATES_NO_SHOW <y|n>         Unloaded baseline duplicate files will not be displayed to the window
+       -WEB_REPORTING <y|n>      Report build data to MySQL database
+       -DO_DISABLE_GROUP_VERSION <y|n>   Disable group version label to be added to nx_version_info.h
+       -ZIP_LOCAL_INIT <y|n>     GZIP includes local_init.bat
+       -DO_UFWRAPPER <y|n>       Generate UF bindings
+       -FULL_DEBUG <y|n>         Use IP PDB Files
+       -DO_COPY_PDBS <y|n>       Copy all 3rd party pdbs
+       -VALIDATE_ARCH_TEST_JSON <y|n>     validates the json library files for arch test
+       -DO_LESS_TIDY <y|n>       Do not clean on errors
+       -DO_DLL_COMPARISON <y|n>  Run dll comparison tool
+       -DO_API_SPELL_CHECK <y|n>         Run API Spellcheck
+       -DO_THREAD_ADJUST <y|n>   Adjust thread count

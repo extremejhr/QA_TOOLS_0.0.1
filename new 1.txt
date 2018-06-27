@@ -1,0 +1,17 @@
+C:\apps\devop_tools\UDU\tools\bin\wnt\runme.bat C:\apps\devop_tools\UDU\tools\udistrib.pl  -v "@Analysis_nx13.211" -p "common wntx64 " -C -s -u -L 1 -t "D:\workdir\group_build\nx13.211"
+
+C:\apps\devop_tools\UDU\tools\bin\wnt\runme.bat C:\apps\devop_tools\UDU\tools\udistrib.pl  -v "@nx1202.8" -p "wntx64 qx src_autotest common macos qx2 wntx64_CC src_parts " -C -s -u -L 1 -t "D:\workdir\ip_build\TEST"
+
+
+
+
+C:\apps\devop_tools\UDU\tools\bin\wnt\unit.bat delete D:\Unit\nx13.212
+
+C:\apps\devop_tools\UDU\tools\bin\wnt\unit.bat add -u  -p D:\workdir\group_build\nx13.210 -w NONE -t "DEV" D:\Unit\nx13.212
+
+C:\apps\devop_tools\UDU\tools\bin\wnt\unit.bat set D:\Unit\Analysis_nx13.217
+
+
+
+
+

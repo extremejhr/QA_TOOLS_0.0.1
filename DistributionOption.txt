@@ -1,0 +1,78 @@
+Usage: udistrib -t<top dir> -r<repository>  -o<offset dir>
+                -p<platforms|!platforms|@custom_view_file>
+               [-q <ALL|OFFSETS|SETS|VERSIONS>] [-v <[@]version>] [-N <0|1>]
+               [-G <string for globally accessible baseline> -v <@version>]
+               [-L <1|(unx|wnt format dir)[,(unx|wnt format dir) -v <@version>]
+               [-S <1|(unx|wnt format dir)[,(unx|wnt format dir) -v <@version>]
+               [-T <number of segments> -F <segment size>]
+               [-m <ALL|MINIMAL|MINIMUM>]
+               [-l <Site ID>]
+               [-j <Command to Run>]
+                -a -A -b -c -C -d -e -f -M -O -Q -s -u -x -z
+
+-a: Platform amnesia - don't remember previously synchronized platforms
+-A: Autoindex reference structure when unpacking
+-b: Batch mode
+-B: Autoindex Baselined Named reference structure when unpacking
+-c: Set Directory Mode to 777
+-C: Turn off the character count and diskspace checking
+-d: Dry Run
+-e: Disk space and character count errors treated as errors, not warnings.
+    The application will terminate and no download will be performed.
+    The default behavior is to display the errors, but to continue the download
+-f: Force re-sync and re-unpack any zips.
+-F: Sets the minimum segment size for multi-threaded Web downloads (Windows only)
+-G: Register a globally accessible baseline instance
+    Only a single global instance can be registered
+-h: Print out this help message
+-k: Keep - Don't delete the zip file after unpacking
+-I: Sets PREV_ROOT to point to a local reference unit, if one
+    is registered.  Adopt orphan unit with local parent baseline instance
+-j: Run post udistrib command provided
+-L: Register baseline instance that can be locally accessed from current host.
+    Multiple instances are allowed to be registered locally.
+    If you use -L 1, the value from the -t switch will be used.
+-l: Select the site for DMS .latest Baseline Instance Queries
+    If you use -l <site_id>, it will use the given site to pull from
+    If you use -l chain, it will run a daisy chain of sites
+-m: Keep Zips (ALL|MINIMAL|MINIMUM)
+    ALL:     Keep ALL Zips
+    MINIMAL: Keep ALL Zips Up To Latest Rebase Checkpoint
+    MINIMUM: Keep Only Zips needed to unpack sets
+-M: Set umask (UNIX Only)
+-N: Specify whether or not src is included in a baseline instance
+    (0 - included, 1 - not included).  If this switch is not used, the default
+    is the srcIncluded control parameter from the Environment Node Definition
+-o: The offset directory under the distributions structure being
+    pulled from in which to find the zip files.  This is generally
+    a descriptive string that defines the basis of the distribution.
+    If you are unsure what savesets are available, you can use the command:
+    udistrib -r <repository location> -q OFFSETS
+-O: Sets PREV_ROOT to point to a site (network based) reference unit, if one
+    is registered.  Adopt orphan unit with site parent baseline instance
+-p: Specify the platforms to synchronize or a Custom View File
+    If you precede the 'platform' with a !, that entry will NOT be downloaded.
+-q: Query repository information (ALL|OFFSETS|SETS|VERSIONS|REPOSITORY_ID)
+-Q: Turn off output messages.  You are on you own.  Use with caution
+-r: The distribution repository you wish to push or pull data from
+-s: Synchronize/copy the specified zip file save sets
+-S: Register a baseline instance that can be accessed by all hosts at a site.
+    Only a single unix and a single windows site can be registered
+    You can register both unix & windows location at same time via the format:
+         -S format1,format2
+    Where format1 can be 1 (gives you the value from the -t switch) or either
+    the unix or windows format to the site visible directory
+    format2 is the opposite (windows or unix) format to the site visible
+    directory.  / and \ are important as they designate the different
+    platform types
+-t: The top directory for reference structure you are populating.
+-T: Sets the number of segments for multi-threaded Web downloads (Windows only)
+-u: Unpack save sets and create the reference structure
+-W: Run UDULocator Synchronously
+-v: Specify a specific version to synchronize
+    When using DMS, this value will
+    be the DMS_CURRENT_BASELINE value for the environment where the zip files
+    were created.
+-x: Sync/Populate plats in the order listed in the -p parameter.
+-z: Transient mode.
+-Z: Path to override the Log Location.
